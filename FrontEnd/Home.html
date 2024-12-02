@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Κράτηση Εκδήλωσης</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    
+
+    <link rel="stylesheet" href="Home.css">
+    <script src="Home.js" defer></script>
+
+    <link rel="icon" type="image/webp" href="./fotos/Home.webp">
+</head>
+<body >
+
+    
+
+    <header class="bg-primary text-white text-center py-5 position-relative">
+        <h1 class="display-4">Κλείστε την Εκδήλωσή σας</h1>
+        <p class="lead">Εύκολη κράτηση εκδηλώσεων με μερικά απλά βήματα!</p>
+        <img src="./fotos/Home.webp" class="img-circle" alt="company" width="100" height="100">
+    
+        <div class="d-flex justify-content-end align-items-start position-absolute" style="top: 10px; right: 10px;">
+            <!-- Dropdown for cards -->
+            <div class="dropdown me-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="userCardsMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                    Οι Κάρτες μου<span id="user-balance" class="badge bg-primary ms-2">0 €</span>
+                </button>
+                <ul class="dropdown-menu" id="userCardsMenuList" aria-labelledby="userCardsMenu">
+                    <li id="addCardOption"><a class="dropdown-item" onclick="AddCard()">Πρόσθεσε μια Κάρτα</a></li>
+                </ul>
+            </div>
+    
+            <div id="reservations" class="dropdown">
+                <button class="btn btn-info dropdown-toggle" type="button" id="reservationsMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                    Οι Κρατήσεις Μου
+                </button>
+                <ul class="dropdown-menu" id="reservationList" aria-labelledby="reservationsMenu">
+                    <li id="noReservations" class="dropdown-item text-muted">Δεν έχετε καμία κράτηση.</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="featuredEvent" class="container text-center my-4" style="display:none;">
+        <div class="card border-primary mb-3" style="max-width: 600px; margin: auto;">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Το Πιο Δημοφιλές Event</h2>
+            </div>
+            <div class="card-body">
+                <h3 id="featuredEventTitle" class="card-title"></h3>
+                <p id="featuredEventDescription" class="card-text"></p>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <main class="container my-5">
+
+        <section class="row justify-content-center mb-5">
+            <div class="col-md-6 text-center">
+                <h2 class="text-center mb-4">Αναζήτησε έδω</h2>
+                <div class="mb-3">
+                    <label for="startDate" class="form-label">Από:</label>
+                    <input type="date" id="startDate" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="endDate" class="form-label">Μέχρι:</label>
+                    <input type="date" id="endDate" class="form-control">
+                </div>
+                <div class="d-flex justify-content-center gap-2">
+                    <button class="btn btn-primary" onclick="showReservations()">Τα reservations σου</button>
+                    <button class="btn btn-secondary" onclick="showEvents()">Τo πιο κερδοφόρο event</button>
+                </div>
+            </div>
+        </section>
+        <section id="outputSection" class="row justify-content-center">
+            <div class="col-md-8">
+                <div id="output" class="p-3 border rounded text-center" style="display: none;"></div>
+            </div>
+        </section>
+
+
+        <section class="row justify-content-center">
+            <div class="col-md-8">
+                <div id="eventsCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#eventsCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Προηγούμενο</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#eventsCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Επόμενο</span>
+                    </button>
+                </div>
+
+                
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-dark" onclick="LogOut()">Log out</button>
+                </div>
+                <div id="bookingForm" class="mt-4" style="display: none;">
+                    <h3 id="event-title"></h3>
+                    <form id="bookingFormFields" onsubmit="MakeReservation();return false">
+                        <div class="mb-3" id="event-capacity">
+                            <p><strong>Διαθεσιμότητα: <span id="event-normal-capacity-text"></span> Κανoνικές Θέσεις <span id="event-Vip-capacity-text"></span>  Vip Θέσεις</strong></p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ticket-type" class="form-label">Τύποι Εισιτηρίων</label>
+                            <div>
+                                <label id="normal" for="regular"></label>
+                            </div>
+                            <div>
+                                <label id="VIPP" for="vip"></label>
+                            </div>
+                        </div>
+                        <div class="mb-3" id="ticket-price" style="display: none;">
+                            <p><strong>Τιμή εισιτηρίων: <span id="ticket-price-text"></span></strong></p>
+                        </div>
+                        <div class="mb-3" id="ticket-quantity-container" style="display: none;">
+                            <label for="ticket-quantity" class="form-label">Πόσα κανονικά Εισιτήρια Θέλεις;</label>
+                            <input type="number" class="form-control" id="ticket-quantity" value="0" name="ticket-quantity" min="0"  oninput="TotalAmount()" required>
+                        </div>
+                        <div class="mb-3" id="ticket-vip-quantity-container" style="display: none;">
+                            <label for="ticket-vip-quantity" class="form-label">Πόσα Vip Εισιτήρια Θέλεις;</label>
+                            <input type="number" class="form-control" id="ticket-vip-quantity" value=0 name="ticket-vip-quantity" min="0" oninput="TotalAmount()" required>
+                        </div>
+
+
+                        <div class="mb-3" id="info" style="display: none;"></div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">Κλείστε Εισιτήρια</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+
+    <footer class="footer" id="footer_go">
+        For more informations 
+        <div class="images-links-container">
+            <figure>
+                <img src="./fotos/csd.png" class="img-rounded" alt="csd foto" width="100"> <!---bootstrap 7  -->
+                <figcaption><a href="https://webmail.csd.uoc.gr/" target="_blank">csd5088@csd.uoc.gr</a> </figcaption>
+            </figure>
+
+            <figure>
+                <img src="./fotos/csd.png" class="img-rounded" alt="csd foto" width="100"> <!---bootstrap 7  -->
+                <figcaption><a href="https://webmail.csd.uoc.gr/" target="_blank">csd5059@csd.uoc.gr</a> </figcaption>
+            </figure>
+
+            <figure>
+                <img src="./fotos/csd.png" class="img-rounded" alt="csd foto" width="100"> <!---bootstrap 7  -->
+                <figcaption><a href="https://webmail.csd.uoc.gr/" target="_blank">csd4567@csd.uoc.gr</a> </figcaption>
+            </figure>
+            </div>
+
+        </div>
+        Copyright © by Kavalieros Antonios, Lamkia Emiraldo and Chrysou Georgia (csd5088-csd5059-csd4567)
+    </footer>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sign In form for user registration with validation and secure password handling"
+    />
+    <title>Sign In</title>
+    <link rel="stylesheet" href="SignIn.css" />
+    <script src="SignIn.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <div id="Head2">
+        <h2>Sign In</h2>
+      </div>
+    </header>
+
+    <main>
+      <form class="center" onsubmit="validateForm();return false">
+        <!-- Firstname Field -->
+        <div class="form-group">
+          <label for="firstname">Firstname:</label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            placeholder="Enter Firstname"
+            pattern="[A-Za-z]{3,50}"
+            title="The name must contain 3 to 30 alphabetic characters."
+            required
+          />
+        </div>
+
+        <!-- Lastname Field -->
+        <div class="form-group">
+          <label for="lastname">Lastname:</label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            placeholder="Enter Lastname"
+            pattern="[A-Za-z]{3,50}"
+            title="The surname must contain 3 to 30 alphabetic characters."
+            required
+          />
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            oninput="checkPasswordStrength()"
+            required
+          />
+          <button
+            type="button"
+            onclick="password_view('password', 'eye1')"
+            class="eye"
+          >
+            <img
+              id="eye1"
+              src="./fotos/eye-slash.png"
+              alt="Toggle password visibility"
+              width="20"
+            />
+          </button>
+        </div>
+
+        <!-- Confirm Password Field -->
+        <div class="form-group">
+          <label for="confirm_password">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirm_password"
+            placeholder="Confirm Password"
+            required
+          />
+          <button
+            type="button"
+            onclick="password_view('confirm_password', 'eye2')"
+            class="eye"
+          >
+            <img
+              id="eye2"
+              src="./fotos/eye-slash.png"
+              alt="Toggle password visibility"
+              width="20"
+            />
+          </button>
+          <p id="message"></p>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <!-- Phone Field -->
+        <div class="form-group">
+          <label for="telephone">Phone:</label>
+          <input
+            type="text"
+            id="telephone"
+            name="telephone"
+            placeholder="Enter your phone number"
+            pattern="[0-9]{10}"
+            title="The phone number must contain 10 to 14 digits."
+            required
+          />
+        </div>
+
+        <!-- Terms & Conditions -->
+        <div class="form-group">
+          <label for="agree">
+            <input type="checkbox" id="agree" required />
+            I agree to the terms of use
+          </label>
+          <p id="oroi">
+            <strong
+              >Prohibited is the misuse of the application. I agree that misuse
+              will be legally pursued.</strong
+            >
+          </p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="form-group">
+          <button type="submit">Sign In</button>
+          <button
+            type="button"
+            class="login-button"
+            onclick="window.location.href='LogIn.html';"
+          >
+            Log in
+          </button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

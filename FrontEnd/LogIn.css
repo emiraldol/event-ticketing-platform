@@ -1,0 +1,187 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #00203f, #adefd1, #ffd700, #ff69b4);
+  background-size: 300% 300%;
+  animation: gradientBackground 10s ease infinite;
+  color: #333;
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+header {
+  background-color: rgba(220, 220, 220, 0.6);
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  border-bottom: 2px solid #ffd700;
+}
+
+header #Head2 h2 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px);
+}
+
+form.center {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="email"],
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+}
+
+button {
+  background-color: #00203f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #adefd1;
+  transform: scale(1.05);
+}
+
+.rdio label {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.back-button {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.back-button button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.back-button button:hover {
+  background-color: #45a049;
+}
+
+#SecondRadio button {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+}
+
+button.SignIn {
+  background-color: #ff69b4;
+  border: none;
+  padding: 12px 24px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+button.SignIn:hover {
+  background-color: #ffd700;
+  transform: scale(1.05);
+}
+
+.eye {
+  background-color: #f0f0f0;
+}
+
+/* Floating shapes in the background */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(50px);
+  animation: floatShapes 6s ease-in-out infinite alternate;
+}
+
+body::before {
+  top: 10%;
+  left: -10%;
+  width: 150px;
+  height: 150px;
+}
+
+body::after {
+  bottom: 15%;
+  right: -5%;
+  width: 200px;
+  height: 200px;
+}
+
+@keyframes floatShapes {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-30px);
+  }
+}

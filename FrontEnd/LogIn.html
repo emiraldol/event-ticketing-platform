@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOG IN</title>
+    <link rel="stylesheet" href="LogIn.css" />
+    <script src="LogIn.js" defer></script>
+
+    <link rel="icon" type="image/png" href="./fotos/LogIn.png" />
+  </head>
+
+  <body>
+    <header>
+      <div id="Head2">
+        <h2>Log In</h2>
+      </div>
+    </header>
+
+    <main>
+      <form class="center" onsubmit="submit_form();return false">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter Email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            required
+          />
+          <button
+            type="button"
+            onclick="password_view('password', 'eye1')"
+            class="eye"
+          >
+            <img
+              id="eye1"
+              src="./fotos/eye-slash.png"
+              alt="Toggle password visibility"
+              width="20"
+            />
+          </button>
+        </div>
+
+        <div class="rdio">
+          <div id="allRadioForm">
+            <label for="Simple-user">
+              <input
+                type="radio"
+                id="Simple-user"
+                name="type_of_user"
+                value="type_of_user"
+                checked
+              />Simple user</label
+            >
+            <label for="Organizer">
+              <input
+                type="radio"
+                id="Organizer"
+                name="type_of_user"
+                value="type_of_user"
+              />Organizer</label
+            >
+          </div>
+        </div>
+
+        <div id="type_of_user">
+          <button id="button_user" type="submit">Log In</button>
+        </div>
+
+        <button class="SignIn" onclick="window.location.href='SignIn.html'; ">
+          Sign in
+        </button>
+      </form>
+    </main>
+  </body>
+</html>

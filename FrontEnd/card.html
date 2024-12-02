@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card info</title>
+
+  
+  <link rel="stylesheet" href="LogIn.css">
+    <script src="card.js" defer></script>
+
+    <link rel="icon" type="image/jpg" href="./fotos/card.jpg">
+
+</head>
+
+<body>
+    <header>
+        <div id="Head2">
+            <h2>Card info</h2>
+        </div>
+    </header>
+
+    <main>
+        
+       <form class="center" onsubmit="return false">  
+
+            <div class="form-group">
+                <label for="card-name" >Card name:</label>
+                <input type="text" id="card-name" name="card-name" placeholder="Enter Card name" pattern="[A-Za-z.]{3,50}$" title="Βάλε σωστά το όνομα της κάρτας". required> 
+            </div>
+
+            <div class="form-group">
+                <label for="username" >Card number:</label>
+                <input type="text" id="card-number" name="card-number" placeholder="Enter Card number without -" pattern="^[0-9]{16}$" title="Το card number είναι μόνο 16 αριθμούς". required> 
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date of birth:</label>
+                <input type="date" id="date" name="date" onclick="CurrentDate()" >
+            </div>
+
+            <div class="form-group">
+                <label for="CVC">CVC:</label>
+                <input type="text" id="CVC" name="CVC" placeholder="Enter your CVC" pattern="^[0-9]{3}$" title="Το CVC είναι μόνο 3 αριθμοί"required>
+            </div>
+            <div class="form-group">
+                <label for="Money">Amount Available:</label>
+                <input type="number" id="Money" name="Money" min=0 placeholder="Amount Available" title="Το CVC είναι μόνο 3 αριθμοί"required>
+            </div>
+                <button class="SignIn" onclick="confirmTransaction('card-name', 'card-number', 'CVC')">Add Card</button>
+            </div>
+            <div class="back-button">
+                <button onclick="window.location.href='Home.html';">Πίσω στην αρχική</button>
+            </div>
+        </form> 
+    </main>
+
+    
+</body>
+</html>

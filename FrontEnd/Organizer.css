@@ -1,0 +1,95 @@
+/* Στυλ για την διάταξη των πεδίων τιμής και ποσότητας δίπλα-δίπλα */
+main {
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  margin-left: 150px;
+  margin-bottom: 3px;
+}
+
+.form-control,
+#type {
+  width: 50%;
+}
+
+/* Στυλ για το label */
+.form-label {
+  width: 40%;
+}
+
+/* Προσθήκη του σήματος του ευρώ στο τέλος των τιμών */
+#regular-ticket-price::after,
+#vip-ticket-price::after {
+  content: "€";
+  margin-left: 5px;
+}
+
+#event-date,
+#event-time {
+  width: 25%;
+}
+
+.form-select {
+  width: 25%;
+}
+
+/* Στυλ για τις ποσότητες των εισιτηρίων */
+#regular-ticket-price,
+#vip-ticket-price {
+  width: 15%;
+}
+
+#regular-ticket-quantity,
+#vip-ticket-quantity,
+#total-quantity {
+  width: 20%;
+}
+
+/* Προσθήκη απόστασης για καλύτερη εμφάνιση */
+#regular-ticket-price,
+#vip-ticket-price,
+#total-price {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+footer {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+}
+
+.images-links-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.images-links-container img {
+  width: 50px;
+  height: 50px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+footer a:link {
+  color: #a9cca7;
+}
+
+footer a:visited {
+  color: #a9cce3;
+}
+
+footer a:hover {
+  color: white;
+}
+
+footer a:active {
+  color: #d9534f;
+}

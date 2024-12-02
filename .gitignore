@@ -1,0 +1,4 @@
+.vscode/
+*.odt
+node_modules/
+.env

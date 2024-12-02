@@ -1,0 +1,206 @@
+/* hw2.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #00203f, #adefd1, #ffd700, #ff69b4);
+  background-size: 300% 300%;
+  animation: gradientBackground 10s ease infinite;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  border-bottom: 2px solid #ffd700;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+header #Head2 h2 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+main {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form.center {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 400px;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+}
+
+button {
+  background-color: #00203f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #adefd1;
+  transform: scale(1.05);
+}
+
+.conf-button input {
+  background-color: #ffd700;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.conf-button input:hover {
+  transform: scale(1.1);
+}
+
+#ckeck {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+#oroi {
+  font-size: 14px;
+  color: #444;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.B1 button {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+}
+
+#grammi {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ffd700;
+  margin: 10px 0;
+}
+
+button.SignIn {
+  background-color: #ff69b4;
+  border: none;
+  padding: 12px 24px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+button.SignIn:hover {
+  background-color: #ffd700;
+  transform: scale(1.05);
+}
+
+#error-message {
+  text-align: center;
+  font-size: 0.9rem;
+  color: red;
+}
+
+#json-output {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Container for input and button */
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect on the visibility toggle button */
+.eye {
+  background-color: #f0f0f0;
+}
