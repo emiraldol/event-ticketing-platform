@@ -1,126 +1,102 @@
-# 🎟️ Event Ticketing Platform
+# Event Ticketing Platform
 
-> A full-stack event management and ticketing web application built for the HY-360 Databases course at the University of Crete.
+A full-stack event management and ticketing web application built for the HY-360 Databases course at the University of Crete (2024).
 
-## 📌 Overview
+## Overview
 
-This platform connects **Organizers** (who create and manage events) with **Customers** (who browse, book, and pay for tickets). It features real-time seat availability, payment simulation via virtual cards, reservation management, and revenue analytics for organizers.
+This platform connects Organizers who create and manage events with Customers who browse, book, and pay for tickets. It features real-time seat availability, payment simulation via virtual cards, reservation management, and revenue analytics for organizers.
 
-## ✨ Features
+## Core Features
 
-### For Customers
+- **Event Management** — Organizers create events with VIP and Normal ticket tiers and capacity limits
+- **Ticket Booking** — Customers book Normal or VIP seats and pay via virtual card
+- **Reservation System** — View, filter by date, and cancel reservations with automatic refund
+- **Revenue Analytics** — Organizers see total earnings broken down by seat type per event
+- **Most Popular Event** — Real-time ranking of events by number of bookings
+- **Secure Access** — Separate login flows for Customers and Organizers
 
-- Register / Login
-- Browse all available events
-- Book Normal or VIP tickets
-- Pay via virtual card (balance-based simulation)
-- View and cancel reservations (with automatic refund)
-- Filter reservations by date range
-- See the most popular event
+## Tech Stack
 
-### For Organizers
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js, Express.js
+- **Database:** MySQL (3rd Normal Form)
+- **Runtime:** Node.js v22.11.0+
 
-- Login with pre-registered credentials
-- Create events with VIP and Normal ticket tiers
-- View all events and their revenue
-- Delete events (automatically refunds all customers)
-- Revenue breakdown: VIP vs Normal seats, per event
-
-## 🛠️ Tech Stack
-
-| Layer    | Technology                  |
-| -------- | --------------------------- |
-| Backend  | Node.js, Express.js         |
-| Database | MySQL (MySQL Workbench 8.0) |
-| Frontend | HTML, CSS, JavaScript       |
-| ORM      | Raw SQL via `mysql2`        |
-| Runtime  | Node.js v22.11.0+           |
-
-## 🗄️ Database Design
-
-The relational schema follows **3rd Normal Form (3NF)** with 6 entities:
-
-- `Customer` — registered users
-- `Organizer` — event creators (pre-seeded, cannot self-register for security)
-- `Event` — events with VIP/Normal ticket tiers and capacity
-- `Ticket` — individual seats linked to an event
-- `Reservation` — a customer's booking of one or more tickets
-- `Card` — virtual payment card linked to a customer
-
-## 🚀 Setup & Run
+## Setup Instructions
 
 ### Prerequisites
+- Node.js v22.11.0+
+- MySQL Workbench 8.0 CE
 
-- [Node.js v22.11.0+](https://nodejs.org/)
-- [MySQL Workbench 8.0 CE](https://www.mysql.com/products/workbench/)
+### 1. Clone the repository
 
-### Steps
+```bash
+git clone https://github.com/emiraldol/event-ticketing-platform.git
+cd event-ticketing-platform
+```
 
-1. **Clone the repository**
+### 2. Configure environment variables
 
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-   cd YOUR_REPO_NAME
-   ```
-
-2. **Configure environment variables**
-
-   Open `BackEnd/.env` and set your MySQL password:
-
-   ```
-   DB_HOST=localhost
-   DB_USER=root
-   DB_PASSWORD=your_mysql_password
-   DB_NAME=project360
-   DB_PORT=3306
-   ```
-
-3. **Install dependencies & start**
-
-   ```bash
-   cd BackEnd
-   npm run dev
-   ```
-
-4. **Open the app**
-
-   Visit [http://localhost:3000](http://localhost:3000)
-
-> ⚠️ **Warning:** Do NOT refresh the page after starting — the database re-initializes on every server start and all data will be lost.
-
-## 👤 Test Credentials
-
-### Organizers (pre-seeded)
-
-| Email              | Password       |
-| ------------------ | -------------- |
-| csd5088@csd.uoc.gr | AKava          |
-| csd5059@csd.uoc.gr | Ilovelol12@    |
-| csd4567@csd.uoc.gr | TsigaraForEver |
-
-> Customers can register directly from the homepage.
-
-## 📁 Project Structure
+Open `BackEnd/.env` and set your MySQL password:
 
 ```
-project360/
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=project360
+DB_PORT=3306
+```
+
+### 3. Install dependencies and run
+
+```bash
+cd BackEnd
+npm run dev
+```
+
+### 4. Open the application
+
+Visit http://localhost:3000
+
+> Warning: Do not refresh the page after starting — the database re-initializes on every server start and all data will be lost.
+
+## Database Design
+
+The relational schema follows 3rd Normal Form (3NF) with 6 entities: Customer, Organizer, Event, Ticket, Reservation, and Card.
+
+## Project Structure
+
+```
+event-ticketing-platform/
 ├── BackEnd/
-│   ├── db.js          # Database connection & schema initialization
-│   ├── node.js        # Express server & all API routes
-│   ├── .env           # Environment variables (DB credentials)
+│   ├── node.js        # Express server and all API routes (30+ endpoints)
+│   ├── db.js          # Database connection and schema initialization
+│   ├── .env           # Environment variables (not committed)
 │   └── package.json
 └── FrontEnd/
-    ├── index.html     # Landing / login page
-    └── ...            # Other pages (customer dashboard, organizer dashboard, etc.)
+    ├── index.html     # Landing and login page
+    └── ...            # Customer and Organizer dashboards
 ```
 
-## 👥 Team
+## Test Credentials
 
-- CSD5059 — Emiraldo Lamkja
-- CSD4567 - Georgia Chrysou
-- CSD5088 - Antonis Kavalieros
+**Organizers**
 
-## 📚 Course
+| Email | Password |
+|-------|----------|
+| csd5088@csd.uoc.gr | AKava |
+| csd5059@csd.uoc.gr | Ilovelol12@ |
+| csd4567@csd.uoc.gr | TsigaraForEver |
 
-**HY-360 — Database Systems**  
+Customers can register directly from the homepage.
+
+## Team
+
+- Emiraldo Lamkja (CSD5059)
+- Antonis Kavalieros (CSD5088)
+- Georgia Chrysou (CSD4567)
+
+## Course
+
+HY-360 — Database Systems  
 Department of Computer Science, University of Crete — 2024
